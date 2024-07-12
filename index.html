@@ -206,9 +206,10 @@
 
     </div>
     <footer>
-        <p class="footer_text" id="update_show">Hesper 가 만든 로또추첨기</p>
-        <p class="footer_text ver">Ver 2.1<span> 24-05-26</span></p>
+        <p class="footer_text" id="update_show">⚒️History view⚒️</p>
+        <p class="footer_text ver">Ver 2.1<span> 24-07-12</span></p>
         <div class="ver_history">
+            <p class="footer_text">Ver 2.2 - 안드로이드 API 버전 변경 및 상세수정 <span> 24-07-12</span></p>
             <p class="footer_text">Ver 2.1 - '로또톡톡' 플레이 스토어에 새로 등록 및 게시 완료 <span> 24-05-26</span></p>
             <p class="footer_text">Ver 2.0 - '로또톡톡' BI 제작 및 헤더에 넣기 <span> 24-03-11</span></p>
             <p class="footer_text">Ver 1.9 - 애널리틱스 달기 <span> 24-02-24</span></p>
@@ -659,27 +660,6 @@
 
 
 
-        /* 
-        https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100
-
-        이렇게 주소가 있는데 
-        drwNo=를 한국서울 시 기준으로 매주 토요일 8시 36분이 되면 1씩 더해줄수있?
-        */
-
-
-        //     $(document).ready(function () {
-        //     $.get("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100", function (data) {
-        //         var result = $(data);
-
-        //         var lottoNumbers = result.find(body).map(function () {
-        //             return $(this).text();
-        //         }).get();
-
-        //         $('.big_title').text( lottoNumbers.join(", "));
-        //     });
-
-        // });
-
 
 
         const express = require('express');
@@ -758,8 +738,7 @@
     -진동줄수있을까?(심화) 흔들어서 전부 새로제너레이트 할수있나?
     (흔들어서 한다면 흔들엇을때 공섞이는 애니 줄수잇을까)(엄청 심화)
     - [로또당첨 확인하고 싶은 번호 저장하고 알림받기] 같은 버튼 만들어서
-    당첨된 번호 크롤링해서 몇등했는지 비교해서 알림보내주기 (이거하려면 서버필요요)
-    
+    당첨된 번호 크롤링해서 몇등했는지 비교해서 알림보내주기
     
     
     
