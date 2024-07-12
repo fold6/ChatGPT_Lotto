@@ -2,7 +2,7 @@
 ChatGPT을 활용하여 만든, 자동으로 로또번호를 추첨해주는 반응형 웹/안드로이드 앱 (디자인 및 퍼블리싱, 앱 배포)<br>
 (A responsive web/Android app that automatically draws lottery numbers (design, publishing, and app distribution))<br><br>
 
-📌[웹 바로가기](https://fold6.github.io/ChatGPT_Lotto/) <br>
+📌[웹 바로가기](https://fold6.github.io/ChatGPT_Lotto/index.html) <br>
 
 📌📱[Playstore 다운로드 페이지](https://play.google.com/store/apps/details?id=com.LoTalk.app)
 
