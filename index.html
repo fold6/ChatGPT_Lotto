@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또톡톡</title>
+    <link href="css/reset.css?cssVersion=22" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/common.css?cssVersion=22" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N292L31TGB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-N292L31TGB');
+    </script>
+
+</head>
+
+<body>
+    <!-- 팝업 -->
+    <!-- 이제 이 팝업 안쓰고 bottomsheets 씀 -->
+    <!-- <div class="popup_modal">
+        <div class="size_change">
+            <div class="popup_modalBox">
+                <div class="popup_modalBox_inner">
+                    <div class="how_to_text_wrap" id="how_to_text_1">
+                        <div class="content">
+                            <div class="fancy_popup_text">
+                                <h1>복사완료😎</h1>
+                                <p>복사번호 들어갈 곳</p>
+                            </div>
+                        </div>
+                        <button class="next_about ripple" id="close_btn">1등당첨 ㄱㄱ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- 팝업 -->
+
+
+
+    <!-- 바텀시트 -->
+    <!-- 바텀시트 공통 이미지도 들어갈시 (머머하기/완료)-->
+    <div class="sheet_wrap popup_modal" style="display:none;">
+        <div class="bottom_sheet_wrap_inner" style="bottom: -100%;">
+            <div class="footer_btn_wrap">
+                <div class="only_side_wrap">
+                    <div class="sheet_top_img">
+                        <img class="profile_plz_gif" src="asset/ani_icon_3d_copy.gif">
+                    </div>
+                    <div class="sheet_top">
+                        <p class="sheet_title">복사완료!</p>
+                        <p class="sheet_subtitle">원하는 곳에 붙혀 넣어보세요 🥰</p>
+                        <div class="fancy_popup_text">
+                            <!-- <p>복사번호 들어갈 곳,인데 지금안씀_살리면 복사된 번호 표기됨ㅇ</p> -->
+                        </div>
+                        <!-- <p class="sheet_sub_title">내 사진, 닉네임 등 프로필 정보를 입력해야 매칭될 확률이 높아져요</p> -->
+                    </div>
+                    <!-- 푸터버튼 컴포넌트 -->
+                    <p class="one_text" style="display: none;">한 줄 설명</p>
+                    <div class="footer_btn close_or_accept ripple">
+                        <!-- <a class="footer_fir_close_btn">취소</p> -->
+                        <a class="footer_sec_btn main_btn_bg ">1등 가보자고~😎</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 흑 필터 공통 : bk_common_bg(닫기버튼이 있다면, 닫기도) 를 누르면 근처에 있는 sheet_wrap 이 none되게함 
+     검은 필터를 누르면 가장 가까운 시트(팝업)으로 뜨는게 닫히도록 함
+     sheet_wrap 안에 '보여줄거' / 'bk_common_bg' 이런 식으로 구성.
+-->
+        <div class="bk_common_bg"></div>
+    </div>
+
+
+
+    <!-- 바텀시트 -->
+    <!-- 바텀시트 -->
+    <!-- 바텀시트 -->
+
+    <div class="all_wrap">
+        <!-- 오른쪽 빨간 로또 테두리선 -->
+        <div class="sideline"></div>
+        <div class="all_center_wrap">
+            <!-- <p class="big_title">LOTTO TALKTALK</p> -->
+            <div class="big_tit_logo">
+                    <img class="" src="asset/로또톡톡_헤더.png">
+            </div>
+
+            <div class="group_inner_gap_wrap">
+                <div class="group_wrap clearfix">
+                    <p class="group_title">GAME A</p>
+                    <!-- 읽어주기 -->
+
+
+
+
+
+
+                    <!-- 
+            |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+                0101 일단 지금은 듣기 대신 카피가 있는데
+                추후, 카피 없애고 듣기 버튼 넣을것임
+             |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+                  \ (•◡•) / 
+        -->
+
+                    <button class="regenerate ripple" data-group="groupA"><i class="fas fa-sync-alt"></i>
+                    </button>
+                    <!-- <button class="voice_read">번호읽기</button> -->
+                    <!-- group_wrap 에 disabled가 있을시,
+                        disable_x-->
+                    <!-- <button class="disable_x">
+                        <i class="fas fa-close"></i>
+                        <i class="fas fa-plus"></i>
+                    </button> -->
+                    <div class="group_one_line">
+                        <ul class="group" id="groupA"></ul>
+                        <button class="copy ripple" data-group="groupA"><i
+                                class="fas fa-solid fa-clipboard"></i></button>
+                    </div>
+
+                </div>
+                <div class="group_wrap">
+                    <p class="group_title">GAME B</p>
+                    <button class="regenerate ripple" data-group="groupB"><i class="fas fa-sync-alt"></i></button>
+                    <!-- <button class="voice_read">번호읽기</button> -->
+                    <!-- <button class="disable_x">
+                        <i class="fas fa-close"></i>
+                        <i class="fas fa-plus"></i>
+                    </button> -->
+                    <div class="group_one_line">
+                        <ul class="group" id="groupB"></ul>
+                        <button class="copy ripple" data-group="groupB"><i
+                                class="fas fa-solid fa-clipboard"></i></button>
+                    </div>
+                </div>
+
+                <div class="group_wrap">
+                    <p class="group_title">GAME C</p>
+                    <button class="regenerate ripple" data-group="groupC"><i class="fas fa-sync-alt"></i></button>
+                    <!-- <button class="disable_x">
+                        <i class="fas fa-close"></i>
+                        <i class="fas fa-plus"></i>
+                    </button> -->
+                    <div class="group_one_line">
+                        <ul class="group" id="groupC"></ul>
+                        <button class="copy ripple" data-group="groupC"><i
+                                class="fas fa-solid fa-clipboard"></i></button>
+                    </div>
+                </div>
+
+                <div class="group_wrap">
+                    <p class="group_title">GAME D</p>
+                    <button class="regenerate ripple" data-group="groupD"><i class="fas fa-sync-alt"></i></button>
+                    <!-- <button class="disable_x">
+                        <i class="fas fa-close"></i>
+                        <i class="fas fa-plus"></i>
+                    </button> -->
+                    <div class="group_one_line">
+                        <ul class="group" id="groupD"></ul>
+                        <button class="copy ripple" data-group="groupD"><i
+                                class="fas fa-solid fa-clipboard"></i></button>
+                    </div>
+                </div>
+
+                <div class="group_wrap">
+                    <p class="group_title">GAME E</p>
+                    <button class="regenerate ripple" data-group="groupE"><i class="fas fa-sync-alt"></i></button>
+                    <!-- <button class="disable_x">
+                        <i class="fas fa-close"></i>
+                        <i class="fas fa-plus"></i>
+                    </button> -->
+                    <div class="group_one_line">
+                        <ul class="group" id="groupE"></ul>
+                        <button class="copy ripple" data-group="groupE"><i
+                                class="fas fa-solid fa-clipboard"></i></button>
+                    </div>
+                </div>
+
+                <!-- buttons -->
+                <div class="bottom_btn_wrap">
+                    <button class="regenerate-all ripple" id="regenerate-all"><i class="fas fa-sync-alt"></i>
+                        다시뽑기</button>
+                    <button class="copy-all ripple" id="copy-all"><i class="fas fa-solid fa-clipboard"></i> </button>
+                </div>
+
+            </div>
+            <!-- group_inner_gap_wrap end -->
+
+        </div>
+        <!-- all_center_wrap end -->
+
+    </div>
+    <footer>
+        <p class="footer_text" id="update_show">Hesper 가 만든 로또추첨기</p>
+        <p class="footer_text ver">Ver 2.1<span> 24-05-26</span></p>
+        <div class="ver_history">
+            <p class="footer_text">Ver 2.1 - '로또톡톡' 플레이 스토어에 새로 등록 및 게시 완료 <span> 24-05-26</span></p>
+            <p class="footer_text">Ver 2.0 - '로또톡톡' BI 제작 및 헤더에 넣기 <span> 24-03-11</span></p>
+            <p class="footer_text">Ver 1.9 - 애널리틱스 달기 <span> 24-02-24</span></p>
+            <p class="footer_text">Ver 1.8 - 팝업X 바텀시트로 변경(요즘 st.) 아이콘도 3D로 변경<span> 24-01-13</span></p>
+            <p class="footer_text">Ver 1.7 - 로또톡톡으로 변경 (코드만)(음성리딩 개발중)+번호별색변경,당첨된 번호 크롤링개발중<span> 24-01-01/05</span></p>
+            <p class="footer_text">Ver 1.6 - 스토어에 chat gpt 등재로 앱내려가서 2개월만에 다시올림, PC에서 모바일로보이게 사이즈 수정<span>
+                    23-11-26</span></p>
+            <p class="footer_text">Ver 1.5 - 앱 아이콘, 이름, AEO 수정<span> 23-06-17</span></p>
+            <p class="footer_text">Ver 1.42 - 게임 취소 X버튼 : 모두 비활성화 후, 재활성화시 문구표기 오류수정<span> 23-06-15</span></p>
+            <p class="footer_text">Ver 1.4 - 플레이 스토어 등록완료, 게임 취소 X버튼 업데이트<span> 23-05-18</span></p>
+            <p class="footer_text">Ver 1.3 - GPT색적용, 알럿대신 popup사용, 복사 제대로 되는지 확인필요 <span> 23-04-23</span></p>
+            <p class="footer_text">Ver 1.0 - 보라테마, 알럿 모바일에서는 안나오는 상태로 git에 등록 <span> 23-04-09</span></p>
+        </div>
+    </footer>
+    <!-- all_wrap end -->
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //        번호뽑기 버튼
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+        function generateRandomNumbers(count) {
+            let numbers = [];
+
+            for (let i = 1; i <= 45; i++) {
+                numbers.push(i);
+            }
+
+            let shuffled = numbers.sort(function () {
+                return 0.5 - Math.random();
+            });
+
+            /* sort 로 오름차순으로 정렬 후, sorted로 반환 */
+            let sorted = shuffled.slice(0, count).sort(function (a, b) {
+                return a - b;
+            });
+
+            return sorted;
+        }
+
+        function generateNumbers(group) {
+            let list = $("#" + group);
+
+            list.empty();
+
+            let numbers = generateRandomNumbers(6);
+
+            // $.each(numbers, function (index, value) {
+            //     list.append("<li>" + value + "</li>");
+            // });
+
+            //  각 번호마다 색깔지정
+            $.each(numbers, function (index, value) {
+                // li 요소 생성
+                let listItem = $("<li>" + value + "</li>");
+
+                // value에 따라 백그라운드 색 설정
+                if (value >= 1 && value <= 10) {
+                    listItem.css("background-color", "#FF9700");
+                } else if (value >= 11 && value <= 20) {
+                    listItem.css("background-color", "#0063F2");
+                } else if (value >= 21 && value <= 30) {
+                    listItem.css("background-color", "#FF2400");
+                } else if (value >= 31 && value <= 40) {
+                    listItem.css("background-color", "#777777");
+                } else if (value >= 41 && value <= 50) {
+                    listItem.css("background-color", "#8D00E8");
+                }
+
+                // 생성한 li 요소를 리스트에 추가
+                list.append(listItem);
+            });
+
+        }
+
+
+
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //        번호 생성/재생성 관련 (+disabled < 안씀)
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+
+
+        $(document).ready(function () {
+
+            $(".group").each(function () {
+                generateNumbers($(this).attr("id"));
+            });
+            /* X로 disabled를 했을 경우, 부모요소(group_wrap)에 disabled있으므로 동작안함*/
+
+
+            $(".regenerate").click(function () {
+                var groupWrap = $(this).closest(".group_wrap");
+
+                //disabled 클래스 안쓰기로함
+                // if (groupWrap.hasClass("disabled")) {
+                //     return; 
+                //     // .disabled 클래스가 있는 경우 동작 중지
+                // }
+                let group = $(this).data("group");
+                generateNumbers(group);
+            });
+            /* X로 disabled를 했을 경우, 부모요소(group_wrap)에 disabled있으므로 동작안함*/
+            $("#regenerate-all").click(function () {
+                $(".group").each(function () {
+                    var groupWrap = $(this).closest(".group_wrap");
+                    //disabled 클래스 안쓰기로함
+                    // if (groupWrap.hasClass("disabled")) {
+                    //     return; 
+                    //     // .disabled 클래스가 있는 경우 동작 중지
+                    // }
+
+                    let group = $(this).attr("id");
+                    generateNumbers(group);
+                });
+            });
+        });
+
+
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //        복사/전체복사 버튼 눌렀을때
+        //        바텀시트 띄우기
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+
+        /* 단순히 팝업만뜸 */
+        /*         $(document).ready(function () {
+                    $(".copy, .copy-all").on("click", function () {
+                        $(".sheet_wrap").show(0);
+                        $(".bottom_sheet_wrap_inner").animate({
+                            bottom: "0"
+                        }, 200);
+                    });
+                }); */
+
+        /* 이미지 새로고침 해줘서 매번 gif 실행되게함 */
+        $(document).ready(function () {
+            $(".copy, .copy-all").on("click", function () {
+                $(".sheet_wrap").show(0);
+                $(".bottom_sheet_wrap_inner").animate({
+                    bottom: "0"
+                }, 200);
+
+                refreshImages();
+            });
+
+            function refreshImages() {
+
+                $('.bottom_sheet_wrap_inner img').each(function () {
+                    var originalSrc = $(this).attr('src');
+                    $(this).attr('src', originalSrc + '?' + new Date().getTime());
+                });
+            }
+        });
+
+
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //        복사/전체복사 버튼 < 이부분 바텀시트 맞게수정
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+        $(".copy").click(function () {
+            let group = $(this).data("group");
+            let numbers = $("#" + group + " li").map(function () {
+                return $(this).text();
+            }).get().join(", ");
+
+            // 텍스트 영역을 만들어 document에 추가합니다.
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = numbers;
+            document.body.appendChild(tempTextArea);
+
+            // 텍스트 영역을 선택하고 복사합니다.
+            tempTextArea.select();
+            document.execCommand('copy');
+
+            // 텍스트 영역을 제거합니다.
+            document.body.removeChild(tempTextArea);
+
+            $('.fancy_popup_text p').text(numbers);
+
+        });
+
+
+        $("#copy-all").click(function () {
+            let allNumbers = "";
+
+
+            $(".group").each(function () {
+                let groupWrap = $(this).closest(".group_wrap");
+
+                /* disabled 클래스 없앰 */
+                // if (groupWrap.hasClass("disabled")) {
+                //     return; // .disabled 클래스가 있는 경우 건너뜀
+                // }
+
+                let groupName = $(this).parents("div").siblings(".group_title").text();
+                let numbers = $(this).find("li").map(function () {
+                    return $(this).text();
+                }).get().join(", ");
+                allNumbers += groupName + " : " + numbers + "\n";
+            });
+
+            // 텍스트 영역을 만들어 document에 추가합니다.
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = allNumbers;
+            document.body.appendChild(tempTextArea);
+
+            // 텍스트 영역을 선택하고 복사합니다.
+            tempTextArea.select();
+            document.execCommand('copy');
+
+            // 텍스트 영역을 제거합니다.
+            document.body.removeChild(tempTextArea);
+
+
+            // 복사할 로또번호가 없/있을시 아래처럼 나타냄
+            // 복사할 로또번호가 없는 경우가 없게 바뀌었으므로 if첫번째문장 (disable을 다 없앰)주석검
+
+            if (allNumbers.trim() === "") {
+                /*  $('.fancy_popup_text p').text("아아,그건 제 잔상입니다만?");
+                 $('.fancy_popup_text h1').text("뭘 복사하라는거죠?🙄");
+                 $('.next_about').text("호에에;");
+                 $('.empty_num').show(); */
+            } else {
+                $('.fancy_popup_text p').text(allNumbers);
+                $('.fancy_popup_text h1').text(fancy_popup_text_title);
+                $('.next_about').text(fancy_popup_next_about);
+                $('.empty_num').hide();
+            }
+        });
+
+        // 원래의 제목,버튼 text저장
+        let fancy_popup_text_title = $('.fancy_popup_text h1').text();
+        let fancy_popup_next_about = $('.next_about').text();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* =================================닫기================================= */
+        /* =================================닫기================================= */
+        /* =================================닫기================================= */
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //       흑필터 공통닫기
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+
+        $(document).ready(function () {
+            $(".bk_common_bg").on("click", function () {
+                $(this).closest(".sheet_wrap").hide();
+                /* 일반 바텀시트 */
+                $('.bottom_sheet_wrap_inner').css('bottom', '-100%');
+                /* 스포츠 종목처럼 탑시트 */
+                // $('.sports_kind_wrap_inner').css('top', '-100%');
+            });
+        });
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //      버튼 공통 닫기
+        //      푸터 버튼 아무거나 눌러도 다 닫히게 해놓음
+        //      아직 버튼의 다른 기능이 없으므로.
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+
+        $(document).ready(function () {
+            $(".footer_btn").on("click", function () {
+                $(this).closest(".sheet_wrap").hide();
+                /* 일반 바텀시트 */
+                $('.bottom_sheet_wrap_inner').css('bottom', '-100%');
+                /* 스포츠 종목처럼 탑시트 */
+                // $('.sports_kind_wrap_inner').css('top', '-100%');
+
+            });
+        });
+
+
+
+
+
+
+
+
+
+
+        /* 팝업모달 */
+        /* 팝업모달 */
+        /* 팝업모달 */
+
+        // about 모달 (안쓰게 수정해야함)
+
+        // $(function () {
+        //     /* 한 줄복사 (copy), 전체복사 (copy-all) 버튼을 누르면  팝업이 나타난다 */
+        //     /* X로 disabled를 했을 경우, 부모요소(group_wrap)에 disabled있으므로 동작안함*/
+
+        //     $(".copy, .copy-all").click(function () {
+        //         var groupWrap = $(this).closest(".group_wrap");
+        //         if (groupWrap.hasClass("disabled")) {
+        //             return; 
+        //             // .disabled 클래스가 있는 경우 동작 중지
+        //         }
+
+        //         $(".popup_modal").fadeIn('1');
+        //     });
+
+
+        //     $(".popup_modal").click(function (e) {
+        //         if (e.target.className == "popup_modal") {
+        //             $(".popup_modal").fadeOut('1');
+        //         }
+        //         if (e.target.className == "size_change") {
+        //             $(".popup_modal").fadeOut('1');
+        //         }
+        //     });
+
+        // });
+
+
+        // // 팝업닫는 글자(안쓰게 수정해야함)
+        // $(function () {
+        //     $("#close_btn").click(function () {
+        //         $(".popup_modal").fadeOut('1');
+        //         // $(".how_to_text_wrap").fadeOut('1');
+        //     });
+        // });
+
+
+
+
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //       0518 X 버튼(게임 비활성화) 기능 (안씀)
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+
+        // $(document).ready(function () {
+        //     $(".disable_x").click(function () {
+        //         var groupWrap = $(this).closest(".group_wrap");
+
+        //         if (groupWrap.hasClass("disabled")) {
+        //             // 비활성화 상태인 경우
+        //             groupWrap.removeClass("disabled");
+        //             $(this).find('.fas.fa-plus').hide();
+        //             $(this).find('.fas.fa-close').show();
+        //         } else {
+        //             // 활성화 상태인 경우
+        //             groupWrap.addClass("disabled");
+        //             $(this).find('.fas.fa-close').hide();
+        //             $(this).find('.fas.fa-plus').show();
+        //         }
+        //     });
+        // });
+
+
+
+
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //      version history 보는 부분
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+
+        $(document).ready(function () {
+            $(".footer_text").click(function () {
+                $(".ver_history").fadeToggle('1');
+            });
+        });
+
+
+
+
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //       1126 로또번호 읽기버튼
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //      \ (•◡•) /
+        //로또 번호 읽기와 가까이에 있는 로또 번호 결과값 한 줄을 읽어줌
+        $(document).ready(function () {
+            $('.voice_read').on('click', function () {
+                var $listItems = $(this).siblings('.group_one_line').find('li');
+
+                $listItems.each(function () {
+                    var currentNumber = $(this).text();
+                    speakNumber(currentNumber);
+                });
+            });
+
+            function speakNumber(number) {
+                // 여기에서 실제 음성을 읽어주는 코드를 구현할 수 있습니다.
+                // 예를 들어, 브라우저의 SpeechSynthesis API를 사용할 수 있습니다.
+                // 아래는 간단한 예제입니다.
+                var synth = window.speechSynthesis;
+                var utterance = new SpeechSynthesisUtterance(number);
+
+                // 읽는 속도
+                utterance.rate = 0.3;
+                // 볼륨
+                utterance.volume = 5;
+                // 톤
+                utterance.pitch = 3;
+
+                synth.speak(utterance);
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* 
+        https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100
+
+        이렇게 주소가 있는데 
+        drwNo=를 한국서울 시 기준으로 매주 토요일 8시 36분이 되면 1씩 더해줄수있?
+        */
+
+
+        //     $(document).ready(function () {
+        //     $.get("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100", function (data) {
+        //         var result = $(data);
+
+        //         var lottoNumbers = result.find(body).map(function () {
+        //             return $(this).text();
+        //         }).get();
+
+        //         $('.big_title').text( lottoNumbers.join(", "));
+        //     });
+
+        // });
+
+
+
+        const express = require('express');
+        const axios = require('axios');
+        const app = express();
+        const port = 3000;
+
+        app.get('/getLottoData', async (req, res) => {
+            try {
+                const response = await axios.get(
+                    'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100');
+                const lottoData = response.data;
+                res.json({
+                    drwtNo1: lottoData.drwtNo1
+                });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({
+                    error: 'Internal Server Error'
+                });
+            }
+        });
+
+        app.listen(port, () => {
+            console.log(`Server is running on http://localhost:${port}`);
+        });
+
+        $(document).ready(function () {
+            $.get("http://localhost:3000/getLottoData", function (data) {
+                $('.big_title').text("LOTTO TALKTALK - " + data.drwtNo1);
+            });
+        });
+
+
+
+
+
+        // $(document).ready(function () {
+        //     // HTML 텍스트에서 drwtNo1": 다음에 오는 숫자 추출
+        //     var htmlText = " https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1100"; // 실제 HTML 텍스트를 여기에 넣어주세요
+        //     var regex = /drwtNo1":\s*(\d+)/;
+        //     var match = htmlText.match(regex);
+
+        //     if (match) {
+        //         var drwtNo1 = match[1];
+        //         $('.big_title').text("LOTTO " + drwtNo1);
+        //     } else {
+        //         console.error("해당 패턴을 찾을 수 없습니다.");
+        //     }
+        // });
+
+
+
+        /* 아니면 그냥 이 html 상에 나타난 글자들 중에
+        drwtNo1": 다음으로 오는 가장 가까운 숫자만 잘라서 
+         $('.big_title').text( lottoNumbers.join(", ")); 여기에 조인시키는 코드로 바꿔줘
+         */
+    </script>
+
+
+
+
+    <!--
+        
+    [Next_update]
+    - ripple effects (📌)
+    - 로딩화면
+    - 복사됏음 팝업뜨고 뒤로가기 누르면 히스토리 백 되게?  해서 아무튼. 팝업닫게끔.
+    - 나중에 BK테마로 바꾸기 (bg #2C363F)
+    - 내 카톡으로 보내기
+    - 소리로 읽어주기
+
+    
+    [🟡]
+    
+    -진동줄수있을까?(심화) 흔들어서 전부 새로제너레이트 할수있나?
+    (흔들어서 한다면 흔들엇을때 공섞이는 애니 줄수잇을까)(엄청 심화)
+    - [로또당첨 확인하고 싶은 번호 저장하고 알림받기] 같은 버튼 만들어서
+    당첨된 번호 크롤링해서 몇등했는지 비교해서 알림보내주기 (이거하려면 서버필요요)
+    
+    
+    
+    
+    
+    [🔪]
+    - alert이 아닌 popup으로 복사한 숫자 보여주기
+    - 뽑아진 6자리 수를 오름차순으로 정렬해서 보이기
+    - Hesper's ins.... padding이상. (수정후, none시켜놓음)
+    - Icon logo 챗또로 Redesign(🔪)
+    - 게임별 X 표시 (전체복사 눌렀을때 X는 안 떠야함) 
+    - 게임 취소 X버튼 : 모두 비활성화 후, 재활성화시 제목,확인버튼 오류수정
+    - PC 버전 
+
+
+    [App_update🔪]
+    -앱 아이콘 챗또 그라데이션 준거로 수정
+    -앱 이름 챗또로 수정
+
+    -0311 새로운 BI 적립 및 앱 아이콘 제작(챗또->로또톡톡)
+        
+    [Check ✅]
+   
+-->
+
+</body>
+
+</html>

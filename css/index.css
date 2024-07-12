@@ -1,0 +1,630 @@
+@charset "utf-8";
+
+/* 전체 중앙정렬 */
+body {
+    background-color: #fff;
+}
+
+/* 옆쪽 빨간 로또 테두리선 */
+.sideline {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 10px;
+    background-color: #F69CB4;
+}
+
+.all_wrap {
+    margin: 0 auto;
+    width: calc(100% - 20px);
+    margin-top: 20px;
+
+}
+
+.all_center_wrap {
+    overflow: hidden;
+    border-radius: 20px;
+    width: 100%;
+    margin: 0 auto;
+    display: inline-block;
+    background-color: #fff;
+    /* box-shadow: 0px 0px 7px #02010a67; */
+}
+
+/* 240311 - 제목을 이미지로 써서 주석 */
+/* 추첨기제목 */
+/* .big_title {
+    line-height: 60px;
+    font-weight: 800;
+    text-align: center;
+    font-size: 3rem;
+    color: #ff57a4;
+    height: 60px;
+    border-bottom: 5px dotted #b2b2b22d;
+} */
+
+/* 헤더 로고 */
+.big_tit_logo {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    text-align: center;
+}
+.big_tit_logo img {
+    width:250px;
+    opacity: .6;
+}
+
+
+
+/* 추첨기 그룹 */
+/* 추첨기 그룹 */
+/* 추첨기 그룹 */
+/* .group_wrap{
+    background-color: #28a745;
+}
+ */
+.group_wrap:first-child {
+    margin-top: 10px;
+}
+
+.group_wrap {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* 그룹 숫자 */
+.group {
+    width: 100%;
+    display: flex;
+    margin-left: 10px;
+}
+
+.group_inner_gap_wrap {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+/* 그룹이름 */
+.group_title {
+    font-size: 1.3rem;
+    color: #ff3387;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* 한 줄씩 새로만들기 버튼 */
+
+.regenerate {
+    margin-top: 10px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    padding: 5px 7px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #fff;
+    color: #FF3E7A;
+    font-size: 1.1rem;
+    transition: 0.1s linear;
+}
+
+.fas {
+    vertical-align: 1px;
+}
+
+
+
+
+
+/* X버튼 */
+.disable_x {
+    float: right;
+    margin-top: 10px;
+    display: inline-block;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    padding: 5px 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    background-color: #b6b6b6;
+    color: #fff;
+    transition: 0.1s linear;
+}
+
+/* .disable_x:active {
+    background-color: #333;
+}
+ */
+
+/* X버튼 눌렀을 시 비활성화 효과들*/
+
+.disabled {
+    filter: opacity(0.4);
+}
+
+.group_wrap.disabled .group li {
+    filter: brightness(0);
+    opacity: .1;
+}
+
+
+
+
+/* +버튼 */
+.disable_x .fas.fa-plus {
+    display: none;
+
+    /*   filter: opacity(1)!important;
+    background-color: #6AAB9A; */
+}
+
+.disabled .disable_x {
+    filter: opacity(1) !important;
+    background-color: #6AAB9A !important;
+}
+
+
+
+
+
+
+
+
+/* 게임번호 한 줄 */
+/* 게임번호 한 줄 */
+/* 게임번호 한 줄 */
+
+
+
+.group_wrap ul li {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 1.8rem;
+    width: 33px;
+    height: 33px;
+    text-align: center;
+    margin-top: 15px;
+    border-radius: 50px;
+    background-color: #646464;
+    font-weight: 700;
+    color: #fff;
+    line-height: 30px;
+
+}
+
+
+/* 
+.group_wrap ul li {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 2rem;
+    width: 33px;
+    height: 33px;
+    text-align: center;
+    margin-top: 15px;
+    border-radius: 50px;
+    background-color: #646464;
+    font-weight: 700;
+    color: #fff;
+    line-height: 33px;
+
+}
+ */
+
+.group_one_line {
+    display: inline-block;
+    display: flex;
+    width: 100%;
+    box-shadow: 0px 0px 3px #02010a18;
+    border-radius: 10px;
+    justify-content: space-between;
+
+}
+
+/* 한 줄 카피버튼 */
+.copy {
+    float: right;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    width: 75px;
+    font-size: 2.6rem;
+    background-color: #FF3E7A;
+    color: #fff;
+    transition: 0.1s linear;
+    height: 64px;
+}
+
+
+
+
+
+
+
+
+
+/* 전체다시 뽑기/복사 wrap */
+/* 전체다시 뽑기/복사 wrap */
+/* 전체다시 뽑기/복사 wrap */
+.bottom_btn_wrap {
+    justify-content: space-between;
+    margin: 0 auto;
+    margin: 30px 0 20px 0;
+    width: 100%;
+    display: flex;
+    align-content: space-between;
+    padding-top: 20px;
+    border-top: 5px dotted #b2b2b22d;
+
+}
+
+.regenerate-all button {
+    display: inline-block;
+}
+
+.regenerate-all {
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    /* width: 100%; */
+    flex: 3;
+    font-size: 1.7rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: #666;
+    color: #fff;
+    margin-right: 10px;
+    box-shadow: 0px 0px 3px #02010a6b;
+    transition: 0.1s linear;
+}
+
+
+
+
+.copy-all {
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    /* width: 20%; */
+    font-size: 2.4rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: #FF3E7A;
+    color: #fff;
+    flex: 1;
+    box-shadow: 0px 0px 3px #02010a6b;
+    transition: 0.1s linear;
+}
+
+
+
+/* footer */
+footer {
+    margin: 0 auto;
+    width: calc(100% - 20px);
+    margin-top: 20px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.footer_text {
+    font-weight: 400;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #777;
+}
+
+.footer_link {
+    font-size: 1.1rem;
+    font-weight: bolder;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #666;
+    box-shadow: 0px 0px 3px #02010a6b;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.footer_link:hover {
+    background-color: #333;
+}
+
+
+.footer_text.ver {
+    font-size: 1rem;
+    margin-top: 7px;
+    color: #bebebe;
+
+}
+
+.footer_text.ver span {
+    color: #bebebe;
+    font-size: 1rem;
+    margin-left: 5px;
+
+}
+
+
+/* version History */
+.ver_history {
+    width: 90%;
+    height: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: none;
+}
+
+.ver_history p {
+    font-size: 1.2rem;
+    color: #333;
+    text-align: left;
+    line-height: 1.6rem;
+}
+
+.ver_history span {
+    font-size: 1rem;
+    color: #999;
+    text-align: left;
+    line-height: 1.5rem;
+}
+
+
+
+/* 팝업 */
+/* 팝업 */
+/* 팝업 */
+
+/* 뒷배경 */
+.popup_modal {
+    z-index: 500;
+    width: 100%;
+    display: none;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.3);
+
+}
+
+.popup_modal .size_change {
+    animation: opa;
+    /* transition: 0.5s; */
+}
+
+@keyframes opa {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* how to play모달 */
+.popup_modalBox {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 65%;
+    border-radius: 10px 10px 10px 10px;
+    z-index: 3000;
+    text-align: left;
+    box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 53%);
+    background-color: #fff;
+
+}
+
+
+
+.how_to_text_wrap {
+    display: none;
+}
+
+#how_to_text_1 {
+    display: block;
+}
+
+.popup_modalBox_inner {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+
+
+
+
+
+
+
+/* 닫기 버튼 옮기기 */
+/* 0307 팝업수정 */
+.popup_modal .close_about {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    line-height: 20px;
+    right: -10px;
+    top: -13px;
+    background: transparent;
+    border: 0;
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    z-index: 20000;
+    font-weight: 900;
+    background: #393939;
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    box-shadow: rgb(0 0 0 / 22%) 0px 0px 2px 0px;
+    border-radius: 50%;
+}
+
+/* 다음버튼으로 */
+.popup_modal .next_about {
+    position: absolute;
+    border-radius: 10px;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: transparent;
+    border: 0;
+    color: rgb(255, 255, 255);
+    font-size: 1.6rem;
+    z-index: 20000;
+    margin-bottom: 10px;
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-weight: 500;
+    background-color: #ff3387;
+    transition: 0.1s linear;
+}
+
+
+
+
+
+/* --------------- 팝업 --------------- */
+/* --------------- 팝업 --------------- */
+/* --------------- 팝업 --------------- */
+.content {
+    width: 100%;
+    /* height: 100%; */
+    /* background-color: #999; */
+    display: inline-block;
+    margin-top: 25px;
+}
+
+.content .fancy_popup_text h1 {
+    font-weight: 900;
+    font-size: 2rem;
+    color: #333;
+    /* text-shadow: 0px 0px 3px #333; */
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.fancy_popup_text p {
+    font-size: 1.5rem;
+    color: #555;
+    text-align: center;
+    line-height: 28px;
+    white-space: pre;
+    margin-bottom: 10px;
+}
+
+p.sheet_subtitle  {
+    font-size: 1.5rem;
+    color: #555;
+    text-align: center;
+    line-height: 28px;
+    white-space: pre;
+    margin-bottom: 40px;
+}
+
+
+/* 팝업안에 이미지 넣을 시 */
+.empty_num {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 180px;
+    /* height: 150px; */
+    border-radius: 10px;
+    overflow: hidden;
+    animation: animate .5s ease-in-out;
+}
+
+.empty_num img {
+    width: 100%;
+    height: 100%;
+    /* filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.61)); */
+}
+
+@keyframes animate {
+    0% {
+        transform: scale(.5);
+    }
+
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+/* 아무도 안쓰는.. 폴드용 사이즈수정 */
+
+
+
+/* Mo.ver */
+@media
+
+/* (min-width:296px) and  */
+(max-width:345px) {
+
+    .popup_modalBox {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        width: 83%;
+        border-radius: 10px 10px 10px 10px;
+        z-index: 3000;
+        text-align: left;
+        box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 53%);
+        background-color: #fff;
+    }
+
+}
+
+
+
+
+/*  PC.ver  */
+/* 1126 pc일때 모바일 화면으로 보도록 수정 */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+/*     .all_wrap {
+        width: 365px;
+    } */
+
+
+    .popup_modalBox {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        width: 40%;
+        border-radius: 10px 10px 10px 10px;
+        z-index: 3000;
+        text-align: left;
+        box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 53%);
+        background-color: #fff;
+    }
+
+
+}
