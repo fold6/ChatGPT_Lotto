@@ -404,6 +404,7 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.3);
+    max-width:1024px;
 
 }
 
